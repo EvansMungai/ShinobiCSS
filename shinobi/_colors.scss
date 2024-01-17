@@ -1,0 +1,31 @@
+@each $key, $val in $colors {
+    .text-#{$key} {
+        color: $val;
+    }
+
+    .bg-#{$key} {
+        background-color: $val;
+    }
+
+    // light variations
+    @for $i from 1 through 9 {
+        .text-#{$key}-light-#{$i} {
+            color: mix($color1: white, $color2: $val, $weight: $i * 10%);
+        }
+
+        .bg-#{$key}-light-#{$i} {
+            background-color: mix($color1: white, $color2: $val, $weight: $i * 10%);
+        }
+    }
+
+    // dark variations
+    @for $i from 1 through 9 {
+        .text-#{$key}-dark-#{$i} {
+            color: mix($color1: black, $color2: $val, $weight: $i * 10%);
+        }
+
+        .bg-#{$key}-dark-#{$i} {
+            background-color: mix($color1: black, $color2: $val, $weight: $i * 10%);
+        }
+    }
+}
